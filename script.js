@@ -40,6 +40,7 @@ addBtn.addEventListener("click",function(){
     costInput.value=''
     count.innerHTML=`Кол-во товаров:${itemArr.length}`
     createSum()
+    saleNew.innerHTM=''
     }
 
     
@@ -69,6 +70,10 @@ function deleteElem(index){
     createElem()
     count.innerHTML=`Кол-во товаров:${itemArr.length}`
     createSum()
+    ResultOfSale()
+    if(itemArr.length===0 ){
+    saleNew.previousSibling.classList.remove('throught')
+    saleNew.innerHTM=' '}
 }
 
 
@@ -80,10 +85,11 @@ function createSum(){
 
 
 saleBtn.addEventListener('click',function(){
-    if(!saleInput.value){saleError.innerHTML="Недопустимое значение скидки"}
+    if(!saleInput.value || itemArr.length==0){saleError.innerHTML="Недопустимое значение скидки"}
     else{
         saleError.innerHTML=""
         totalOfSale()
+        ResultOfSale()
     }
 })
 
@@ -95,5 +101,12 @@ function totalOfSale(){
     bottom.classList.add("throught")
 })
 
+}
+
+
+function ResultOfSale(){
+    let newprice=parseInt(price.textContent.slice(0,-2))
+    saleNew.innerHTML=newprice-newprice*parseInt(saleInput.value)/100
+    saleNew.previousSibling.classList.add('throught')
 }
 
