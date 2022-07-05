@@ -1,0 +1,16 @@
+{
+  "name": "card",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "homepage": "https://teplovslava.github.io/card",
+  "scripts": {
+    "deploy":"gh-pages -d card"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
+}
