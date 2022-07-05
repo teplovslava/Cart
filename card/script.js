@@ -3,6 +3,9 @@ const nameInput = document.querySelectorAll('.left-part input')[0]
 const codeInput = document.querySelectorAll('.left-part input')[1]
 const costInput = document.querySelectorAll('.left-part input')[2]
 const card = document.querySelector('.right-part')
+const cardError = document.querySelector('.error')
+const count = document.querySelector('.count')
+
 
 let itemArr = []
 
@@ -16,9 +19,20 @@ function CardItem(name,code,cost){
 let deleteBtn= document.querySelector(".deleteElem")
 
 addBtn.addEventListener("click",function(){
+    if(!nameInput.value ||!codeInput.value || !costInput.value){
+        cardError.innerHTML='Неверно введены данные'
+    }else{
+    cardError.innerHTML=''
     itemArr.push(new CardItem(nameInput.value,codeInput.value,parseInt(costInput.value)))
     console.log(itemArr)
     createElem()
+    nameInput.value=''
+    codeInput.value=''
+    costInput.value=''
+    count.innerHTML=`Кол-во товаров:${itemArr.length}`
+    }
+
+    
 })
 
 function htmlElem(item,index){
@@ -39,6 +53,7 @@ function createElem(){
 function deleteElem(index){
     itemArr.splice(index,1)
     createElem()
+    count.innerHTML=`Кол-во товаров:${itemArr.length}`
 
 }
 
