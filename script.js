@@ -4,8 +4,8 @@ const codeInput = document.querySelectorAll('.left-part input')[1]
 const costInput = document.querySelectorAll('.left-part input')[2]
 const card = document.querySelector('.right-part')
 const cardError = document.querySelector('.error')
-const count = document.querySelector('.count')
-
+let count = document.querySelector('.count')
+let price = document.querySelector('.price')
 
 let itemArr = []
 
@@ -24,12 +24,12 @@ addBtn.addEventListener("click",function(){
     }else{
     cardError.innerHTML=''
     itemArr.push(new CardItem(nameInput.value,codeInput.value,parseInt(costInput.value)))
-    console.log(itemArr)
     createElem()
     nameInput.value=''
     codeInput.value=''
     costInput.value=''
     count.innerHTML=`Кол-во товаров:${itemArr.length}`
+    createSum()
     }
 
     
@@ -47,14 +47,20 @@ function htmlElem(item,index){
 
 function createElem(){
     itemArr.length==0?card.innerHTML="<p class='list'>Список пуст</p>":card.innerHTML=''
-    itemArr.forEach((item,index)=>card.innerHTML += htmlElem(item,index))
+    itemArr.forEach((item,index)=>{card.innerHTML += htmlElem(item,index)})
+
 }
 
 function deleteElem(index){
     itemArr.splice(index,1)
     createElem()
     count.innerHTML=`Кол-во товаров:${itemArr.length}`
-
+    createSum()
 }
 
+function createSum(){
+    let sumCount=0
+    itemArr.forEach((item)=>sumCount+=parseInt(item.cost))
+    price.innerHTML=`${sumCount} р`
+}
 
