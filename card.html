@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-part">
+            <h1>Добавление товара</h1>
+            <div class="addItem">
+            <label for="name">Название</label>
+                <input id="name" type="text">
+            <label for="code">Код</label>
+                <input id="code" type="text">
+            <label for="cost">Цена</label>
+                <input id="cost" type="text">
+                <div class="addCardItem">
+                <button>Добавить товар</button></div>
+                <div class="error"></div> 
+                <label for="sale-input">Скидка</label>
+                <input id="sale-input" class="sale" type="number" min="0" max="100">
+                <div class="saleItem addCardItem">
+                <button class="saleItemButton">Рассчитать скидку!</button>
+            </div>
+            <P class="error error-sale"></P>     
+            </div>
+            <p class="count">Кол-во товаров:0</p>
+            <div class="flex sum"><p>Сумма:</p><p class="price">0р</p><p class="sale-window"></p></div>
+                
+
+        </div>
+        <div class="right-part"><p class="list">Список пуст</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
