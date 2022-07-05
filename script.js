@@ -40,7 +40,7 @@ addBtn.addEventListener("click",function(){
     costInput.value=''
     count.innerHTML=`Кол-во товаров:${itemArr.length}`
     createSum()
-    saleNew.innerHTM=''
+    saleNew.innerHTML=""
     }
 
     
@@ -73,7 +73,7 @@ function deleteElem(index){
     ResultOfSale()
     if(itemArr.length===0 ){
     saleNew.previousSibling.classList.remove('throught')
-    saleNew.innerHTM=' '}
+    saleNew.innerHTML=""}
 }
 
 
