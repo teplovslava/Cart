@@ -12,6 +12,8 @@ let itemArr = []
 let saleValue= parseInt(saleInput.value)
 let saleError = document.querySelector('.error-sale')
 let saleNew = document.querySelector('.sale-new')
+let saleDelete = document.querySelector('.deleteSale')
+
 
 
 
@@ -110,3 +112,12 @@ function ResultOfSale(){
     saleNew.previousSibling.classList.add('throught')
 }
 
+saleDelete.addEventListener('click',function(){
+    saleNew.innerHTML=""
+    saleNew.previousSibling.classList.remove('throught')
+    let saleItem = document.querySelectorAll('.forSale')
+    
+    itemArr.forEach((item,index)=>{saleItem[index].innerHTML=""
+    let bottom=saleItem[index].nextSibling.nextSibling
+    bottom.classList.remove("throught")})
+})
