@@ -73,9 +73,10 @@ function deleteElem(index){
     count.innerHTML=`Кол-во товаров:${itemArr.length}`
     createSum()
     ResultOfSale()
-    if(itemArr.length===0 ){
+    if(itemArr.length==0 ){
     saleNew.previousSibling.classList.remove('throught')
     saleNew.innerHTML=""}
+    totalOfSale()
 }
 
 
